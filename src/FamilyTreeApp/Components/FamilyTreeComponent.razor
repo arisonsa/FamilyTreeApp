@@ -1,0 +1,8 @@
+@using FamilyTreeApp.Models
+
+<RecursiveTreeComponent Node="@FamilyTree.Root" />
+
+@code {
+    [Parameter]
+    public FamilyTree FamilyTree { get; set; }
+}

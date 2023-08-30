@@ -1,0 +1,15 @@
+@using FamilyTreeApp.Models
+
+<div>
+    <img src="@Person.ImageUrl" alt="@Person.Name" />
+    <p>@Person.Name</p>
+    <p>@Person.Gender</p>
+    <p>@Person.DateOfBirth</p>
+    <p>@Person.EndDate</p>
+    <p>@Person.Biography</p>
+</div>
+
+@code {
+    [Parameter]
+    public Person Person { get; set; }
+}

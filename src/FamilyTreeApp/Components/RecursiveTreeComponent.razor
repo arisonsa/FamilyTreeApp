@@ -1,0 +1,18 @@
+@using FamilyTreeApp.Models
+
+<div>
+    <PersonComponent Person="@Node.Person" />
+
+    @if (Node.Children != null)
+    {
+        foreach (var child in Node.Children)
+        {
+            <RecursiveTreeComponent Node="@child" />
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public TreeNode Node { get; set; }
+}
