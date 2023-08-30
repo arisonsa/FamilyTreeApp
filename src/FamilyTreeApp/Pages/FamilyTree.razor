@@ -1,0 +1,17 @@
+@page "/familytree"
+@using FamilyTreeApp.Models
+
+@foreach (var tree in familyTrees)
+{
+    <FamilyTreeComponent FamilyTree="@tree" />
+}
+
+@code {
+    private List<FamilyTree> familyTrees;
+
+    protected override void OnInitialized()
+    {
+        familyTrees = new List<FamilyTree>();
+        // TODO: Initialize the family trees with data from the database
+    }
+}
