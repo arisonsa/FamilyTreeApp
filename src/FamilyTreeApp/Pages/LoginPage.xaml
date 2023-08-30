@@ -1,0 +1,7 @@
+      <StackLayout>
+        <Entry Placeholder="Username" />
+        <Entry Placeholder="Password" IsPassword="true" />
+        <Button Text="Login" Clicked="OnLoginClicked" />
+        <Button Text="Register" Clicked="OnRegisterClicked" />
+        <Button Text="Reset Password" Clicked="OnResetPasswordClicked" />
+      </StackLayout>
