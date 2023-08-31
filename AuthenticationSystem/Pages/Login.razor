@@ -1,0 +1,43 @@
+// ... existing code ...
+
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+// ... existing code ...
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="username" @bind-Value="loginModel.Username" placeholder="Username" />
+    <InputText id="password" @bind-Value="loginModel.Password" type="password" placeholder="Password" />
+
+    <button type="submit">Log in</button>
+</EditForm>
+
+<button @onclick="SignInWithGoogle">Sign in with Google</button>
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+
+    private async Task HandleValidSubmit()
+    {
+        var result = await AuthenticationStateProvider.SignInAsync(loginModel.Username, loginModel.Password);
+        // handle result
+    }
+
+    private async Task SignInWithGoogle()
+    {
+        var result = await AuthenticationStateProvider.SignInWithGoogleAsync();
+        // handle result
+    }
+
+    private class LoginModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+    }
+}
